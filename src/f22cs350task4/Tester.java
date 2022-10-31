@@ -30,7 +30,7 @@ public class Tester {
         }
 
         System.out.println("Nonlinear\n");
-        MyComponentNonlinear nonlinear = new MyComponentNonlinear("321", 0, 14, 2, 1);
+        MyComponentNonlinear nonlinear = new MyComponentNonlinear("321", 0, 30, 2, 1);
         System.out.println("ID: " + nonlinear.getID());
         System.out.println("State Start: " + nonlinear.getStateStart());
         System.out.println("State End: " + nonlinear.getStateEnd());
@@ -42,12 +42,12 @@ public class Tester {
             System.out.println("Current State: " + nonlinear.getState());
         }
 
-        //System.out.println("Terminating");
-        //nonlinear.terminate();
-        //System.out.println("Is it dying? " + nonlinear.isDying());
+        System.out.println("Terminating");
+        nonlinear.terminate();
+        System.out.println("Is it dying? " + nonlinear.isDying());
 
-        System.out.println("Canceled");
-        nonlinear.cancel();
+        //System.out.println("Canceled");
+        //nonlinear.cancel();
 
         for(int i = 0; i < 5; i++) {
             nonlinear.updateState();
