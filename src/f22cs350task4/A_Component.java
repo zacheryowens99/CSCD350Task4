@@ -1,4 +1,4 @@
-package f22cs350task4;
+package f22cs350task4;//Zachery Owens 10/31/2022
 
 public abstract class A_Component {
     String id;
@@ -35,28 +35,7 @@ public abstract class A_Component {
     // then the former is clamped to the latter. This returns whether the end state has been reached
     public boolean updateState(){
 
-        if (this.dying == true) {
-
-            if (this.dyingCount == 3)//3 calls after terminate will switch the component to dead
-                this.dead = true;
-
-            if (this.stepAcceleration != 0)//If nonlinear, reduce step by half
-                step = step / 2;
-            this.dyingCount++;
-        }
-
-        if (this.dead == false) {
-
-            this.state = state + step;//move the current state
-            if(this.state > this.stateEnd)//keep the current state in bounds
-                this.state = stateEnd;
-            if(this.dying == false)//(nonlinear) if not dying increase the step value
-                this.step = step + stepAcceleration;
-        }
-        if (this.state == this.stateEnd)//if the state end has been reached, return true
-            return true;
-        else
-            return false;
+        return (this.state == this.stateEnd);
     }
 
     //Immediately stops the component from servicing calls to updateState().
