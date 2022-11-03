@@ -5,7 +5,7 @@ public class Tester {
     public static void main(String[] args){
 
         System.out.println("Linear\n");
-        MyComponentLinear linear = new MyComponentLinear("123", 0, 10, 1);
+        MyComponentLinear linear = new MyComponentLinear("123", 10, 0, -1);
         System.out.println("ID: " + linear.getID());
         System.out.println("State Start: " + linear.getStateStart());
         System.out.println("State End: " + linear.getStateEnd());
@@ -30,7 +30,7 @@ public class Tester {
         }
 
         System.out.println("Nonlinear\n");
-        MyComponentNonlinear nonlinear = new MyComponentNonlinear("321", 0, 30, 2, 1);
+        MyComponentNonlinear nonlinear = new MyComponentNonlinear("321", 30, 0, -2, 1);
         System.out.println("ID: " + nonlinear.getID());
         System.out.println("State Start: " + nonlinear.getStateStart());
         System.out.println("State End: " + nonlinear.getStateEnd());

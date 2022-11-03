@@ -31,17 +31,18 @@ public abstract class A_Component {
         return this.step;
     }
 
-    //Updates the state from its current state to its next state based on the current step. If the next state exceeds the end state,
+    //Updates the state from its current state to its next state based on the current step.
+    // If the next state exceeds the end state,
     // then the former is clamped to the latter. This returns whether the end state has been reached
     public boolean updateState(){
-
+        //this method will be overwritten by children classes
         return (this.state == this.stateEnd);
     }
 
     //Immediately stops the component from servicing calls to updateState().
     public void cancel(){
     this.dead = true;
-    this.dying = true;
+    this.dying = false;
     }
 
     //Stops the component from servicing calls to updateState() with a notional gradual shutdown. For linear components,

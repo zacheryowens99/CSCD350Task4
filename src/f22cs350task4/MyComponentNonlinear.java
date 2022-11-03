@@ -26,7 +26,7 @@ public class MyComponentNonlinear extends A_Component{
     @Override
     public boolean updateState(){
         if (this.dying == true) {
-            if (this.dyingCount == 3) {//3 calls after terminate will switch the component to dead
+            if (this.dyingCount == 3) {//3 updateState() calls after terminate will switch the component to dead
                 this.dead = true;
                 this.dying = false;
             }
@@ -37,17 +37,17 @@ public class MyComponentNonlinear extends A_Component{
 
             this.state = state + step;//move the current state
 
-            if (this.state > this.stateEnd || this.state < this.stateEnd)//keep the current state in bounds
+            if ((this.state > this.stateEnd && this.step > 0) || (this.step < 0 && this.state < this.stateEnd))//keep the current state in bounds
                 this.state = stateEnd;
 
             if (this.dying == false) {
                 if(this.step > 0)
-                    this.step = step + stepAcceleration;
+                    this.step = step + stepAcceleration;//step positive
                 else
-                    this.step = step - stepAcceleration;
+                    this.step = step - stepAcceleration;//step negative
             }
         }
-        //if the state end or stat has been reached, return true
+        //if the state end has been reached, return true
         return (this.state == this.stateEnd);
     }
 
