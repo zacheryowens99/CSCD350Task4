@@ -2,6 +2,8 @@ package f22cs350task4;//Zachery Owens 10/31/2022
 
 public class MyComponentNonlinear extends A_Component{
 
+    double stepAcceleration;
+
     public MyComponentNonlinear(String id, double stateStart, double stateEnd, double step, double stepAcceleration){
         this.id = id;
         this.stateStart = stateStart;
@@ -35,13 +37,15 @@ public class MyComponentNonlinear extends A_Component{
 
             this.state = state + step;//move the current state
 
-            if (this.state > this.stateEnd)//keep the current state in bounds
+            if (this.state > this.stateEnd || this.state < this.stateEnd)//keep the current state in bounds
                 this.state = stateEnd;
-            else if (this.state < this.stateStart)
-                this.state = stateStart;
 
-            if (this.dying == false)
-                this.step = step + stepAcceleration;
+            if (this.dying == false) {
+                if(this.step > 0)
+                    this.step = step + stepAcceleration;
+                else
+                    this.step = step - stepAcceleration;
+            }
         }
         //if the state end or stat has been reached, return true
         return (this.state == this.stateEnd);

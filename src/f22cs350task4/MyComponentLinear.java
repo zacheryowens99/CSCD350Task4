@@ -28,10 +28,8 @@ public class MyComponentLinear extends A_Component {
 
             this.state = state + step;//move the current state
 
-            if (this.state > this.stateEnd)//keep the current state in bounds
+            if (this.state > this.stateEnd || this.state < this.stateEnd)//keep the current state in bounds
                 this.state = stateEnd;
-            else if (this.state < this.stateStart)
-                this.state = stateStart;
         }
         //if the state end or stat has been reached, return true
         return (this.state == this.stateEnd);

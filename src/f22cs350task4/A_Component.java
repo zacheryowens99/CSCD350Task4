@@ -3,7 +3,7 @@ package f22cs350task4;//Zachery Owens 10/31/2022
 public abstract class A_Component {
     String id;
     int dyingCount = 0;
-    double stateStart, stateEnd, state, step, stepAcceleration;
+    double stateStart, stateEnd, state, step;
     boolean dying, dead;
 
     //Gets the arbitrary nonempty identifier of this component.
