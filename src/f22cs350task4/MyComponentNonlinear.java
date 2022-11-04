@@ -1,4 +1,4 @@
-package f22cs350task4;//Zachery Owens 10/31/2022
+package f22cs350task4;//Zachery Owens 11/3/2022
 
 public class MyComponentNonlinear extends A_Component{
 
@@ -35,9 +35,12 @@ public class MyComponentNonlinear extends A_Component{
         }
         if (this.dead == false) {
 
-            this.state = state + step;//move the current state
+            if (this.stateEnd > this.stateStart)
+                this.state = state + step;//move the current state
+            else
+                this.state = state - step;
 
-            if ((this.state > this.stateEnd && this.step > 0) || (this.step < 0 && this.state < this.stateEnd))//keep the current state in bounds
+            if ((this.state > this.stateEnd && this.stateEnd > this.stateStart ) || (this.state < this.stateEnd && this.stateEnd < this.stateStart))//keep the current state in bounds
                 this.state = stateEnd;
 
             if (this.dying == false) {

@@ -5,7 +5,7 @@ public class Tester {
     public static void main(String[] args){
 
         System.out.println("Linear\n");
-        MyComponentLinear linear = new MyComponentLinear("123", 10, 0, -1);
+        MyComponentLinear linear = new MyComponentLinear("123", 0, 10, 1);
         System.out.println("ID: " + linear.getID());
         System.out.println("State Start: " + linear.getStateStart());
         System.out.println("State End: " + linear.getStateEnd());
@@ -16,21 +16,21 @@ public class Tester {
             System.out.println("Current State: " + linear.getState());
         }
 
-        System.out.println("Terminating");
-        linear.terminate();
-        System.out.println("Is it dying? " + linear.isDying());
+        //System.out.println("Terminating");
+        //linear.terminate();
+        //System.out.println("Is it dying? " + linear.isDying());
 
         //System.out.println("Canceled");
         //linear.cancel();
 
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 8; i++) {
             System.out.println("Is it dead? " + linear.isDead());
             linear.updateState();
             System.out.println("Current State: " + linear.getState());
         }
 
         System.out.println("Nonlinear\n");
-        MyComponentNonlinear nonlinear = new MyComponentNonlinear("321", 30, 0, -2, 1);
+        MyComponentNonlinear nonlinear = new MyComponentNonlinear("321", 30, 0, 2, 1);
         System.out.println("ID: " + nonlinear.getID());
         System.out.println("State Start: " + nonlinear.getStateStart());
         System.out.println("State End: " + nonlinear.getStateEnd());
