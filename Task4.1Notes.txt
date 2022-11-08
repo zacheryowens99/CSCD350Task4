@@ -1,0 +1,9 @@
+Test 4.1 notes
+
+Overall seems to working correctly, but I did notice two issues when looking over the test results
+
+1. There seems to be a problem with the dying and dead flags, after the third iteration of terminate (this only affects linear)
+
+2. After terminate, the step should be cut in half after the step has been taken (this only affects nonlinear)
+
+I think perhaps i need to move, the if(isdying) to underneath the update state chunk

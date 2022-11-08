@@ -17,13 +17,8 @@ public class MyComponentLinear extends A_Component {
     // the step once per call until the end state is reached.
     @Override
     public boolean updateState() {
-        if (this.dying == true) {
-            if (this.dyingCount == 3) {//3 updateState() calls after terminate will switch the component to dead
-                this.dead = true;
-                this.dying = false;
-            }
-            this.dyingCount++;
-        }
+
+
         if (this.dead == false) {
 
             if (this.stateEnd > this.stateStart)
@@ -34,7 +29,17 @@ public class MyComponentLinear extends A_Component {
 
             if ((this.state > this.stateEnd && this.stateEnd > this.stateStart ) || (this.state < this.stateEnd && this.stateEnd < this.stateStart))//keep the current state in bounds
                 this.state = stateEnd;
+
+            if(this.dying){
+                this.dyingCount++;
+                if(this.dyingCount == 3){
+                    this.dead = true;
+                    this.dying = false;
+                }
+            }
         }
+
+
         //if the state end has been reached, return true
         return (this.state == this.stateEnd);
     }
